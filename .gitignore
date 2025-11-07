@@ -1,7 +1,8 @@
 .venv
 .idea
-data
+/data
 .csv
 .ipynb_checkpoints
+notebooks
 tests
 
