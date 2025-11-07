@@ -3,5 +3,6 @@
 /data
 .csv
 .ipynb_checkpoints
-/tests
+notebooks
+tests
 
