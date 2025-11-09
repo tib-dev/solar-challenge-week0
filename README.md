@@ -6,25 +6,24 @@ Kickstart your AI Mastery with cross-country solar farm analysis from Benin, Sie
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)  
-- [Business Objective](#business-objective)  
-- [Dataset Overview](#dataset-overview)  
-- [Folder Structure](#folder-structure)  
-- [Setup & Installation](#setup--installation)  
-- [Tasks Completed](#tasks-completed)  
-- [Technologies Used](#technologies-used)  
-- [Key Observations](#key-observations)  
-- [Feedback & Next Steps](#feedback--next-steps)  
-- [References](#references)  
+- [Project Overview](#project-overview)
+- [Business Objective](#business-objective)
+- [Dataset Overview](#dataset-overview)
+- [Folder Structure](#folder-structure)
+- [Setup & Installation](#setup--installation)
+- [Tasks Completed](#tasks-completed)
+- [Technologies Used](#technologies-used)
+- [Key Observations](#key-observations)
 
 ---
 
 ## Project Overview
 
-Week 0 challenge for AI Mastery focuses on end-to-end solar data analysis:  
-- Data profiling, cleaning, and exploratory analysis (EDA)  
-- Cross-country comparison of solar metrics  
-- Optional interactive dashboard with Streamlit  
+Week 0 challenge for AI Mastery focuses on end-to-end solar data analysis:
+
+- Data profiling, cleaning, and exploratory analysis (EDA)
+- Cross-country comparison of solar metrics
+- Optional interactive dashboard with Streamlit
 
 The project uses real solar radiation datasets from Benin, Sierra Leone, and Togo.
 
@@ -40,29 +39,28 @@ MoonLight Energy Solutions seeks to enhance operational efficiency and sustainab
 
 The dataset contains solar and environmental measurements:
 
-| Column | Description |
-|--------|-------------|
-| Timestamp | Date and time of observation |
-| GHI, DNI, DHI | Solar radiation measurements (W/m²) |
-| ModA, ModB | Module irradiance readings (W/m²) |
-| Tamb | Ambient Temperature (°C) |
-| RH | Relative Humidity (%) |
-| WS, WSgust, WSstdev | Wind speed and variability (m/s) |
-| WD, WDstdev | Wind direction and variability (°) |
-| BP | Barometric Pressure (hPa) |
-| Precipitation | Precipitation rate (mm/min) |
-| Cleaning | Sensor/module cleaning flag (1 = cleaned) |
-| TModA, TModB | Module temperatures (°C) |
-| Comments | Additional notes |
+| Column              | Description                               |
+| ------------------- | ----------------------------------------- |
+| Timestamp           | Date and time of observation              |
+| GHI, DNI, DHI       | Solar radiation measurements (W/m²)       |
+| ModA, ModB          | Module irradiance readings (W/m²)         |
+| Tamb                | Ambient Temperature (°C)                  |
+| RH                  | Relative Humidity (%)                     |
+| WS, WSgust, WSstdev | Wind speed and variability (m/s)          |
+| WD, WDstdev         | Wind direction and variability (°)        |
+| BP                  | Barometric Pressure (hPa)                 |
+| Precipitation       | Precipitation rate (mm/min)               |
+| Cleaning            | Sensor/module cleaning flag (1 = cleaned) |
+| TModA, TModB        | Module temperatures (°C)                  |
+| Comments            | Additional notes                          |
 
 Cleaned datasets are saved in `/data/processed/` (ignored in git).
 
 ---
 
-
 ## Project Structure
 
-```text
+````text
 solar-challenge-week0/
 ├── app/                   # Streamlit app and assets
 │   ├── assets/            # Screenshots or static resources
@@ -92,71 +90,72 @@ solar-challenge-week0/
 
 ---
 
+
 ## Setup & Installation
 
-1. Clone the repository:
-
+### 1. Clone the repository
 ```bash
 git clone https://github.com/<username>/solar-challenge-week0.git
 cd solar-challenge-week0
 
-# Create a Python virtual environment:
+# Create a Python virtual environment
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+# Activate (Linux/Mac)
+source venv/bin/activate
+# Activate (Windows)
+venv\Scripts\activate
 
-#Install dependencies:
+# Install dependencies
+
 pip install -r requirements.txt
 
+# Run the Streamlit app
 
-# Run the Streamlit app:
 python -m streamlit run app/main.py
 
 
+## Tasks Completed
 
-Tasks Completed
+### Task 1: Git & Environment Setup
+- Repository initialized with `.gitignore`, `requirements.txt`, and CI workflow.
+- Python virtual environment set up.
 
-Task 1: Git & Environment Setup
+### Task 2: Data Profiling, Cleaning & EDA
+- Country-specific notebooks for:
+  - Benin
+  - Sierra Leone
+  - Togo
+- Activities performed:
+  - Summary statistics
+  - Missing value handling
+  - Outlier detection
+  - Correlations
+  - Visualizations
 
-Repository initialized with .gitignore, requirements.txt, and CI workflow.
+### Task 3: Cross-Country Comparison
+- Compare solar metrics across countries.
+- Methods used:
+  - Boxplots
+  - Summary tables
+  - Statistical tests for GHI, DNI, DHI
 
-Python virtual environment set up.
+### Bonus: Streamlit Dashboard
+- Interactive visualization with country selection and metric display.
+- Top regions summary table integrated.
 
-Task 2: Data Profiling, Cleaning & EDA
+---
 
-Country-specific notebooks for Benin, Sierra Leone, and Togo.
+## Technologies Used
+- Python 3.x
+- Pandas, NumPy, Matplotlib, Seaborn, Plotly
+- Streamlit for dashboard
+- Git & GitHub Actions for version control and CI
+- Jupyter Notebooks for EDA
 
-Summary stats, missing value handling, outlier detection, correlations, and visualizations.
+---
 
-Task 3: Cross-Country Comparison
-
-Compare solar metrics across countries.
-
-Boxplots, summary tables, and statistical tests for GHI/DNI/DHI.
-
-Bonus: Streamlit Dashboard
-
-Interactive visualization with country selection and metric display.
-
-Top regions summary table integrated.
-
-Technologies Used
-
-Python 3.x
-
-Pandas, NumPy, Matplotlib, Seaborn, Plotly
-
-Streamlit for dashboard
-
-Git & GitHub Actions for version control and CI
-
-Jupyter Notebooks for EDA
-
-
-Key Observations
-
-Country X has highest median GHI but also high variability.
-
-Cleaning events impact module irradiance noticeably.
-
-Wind and humidity patterns influence solar radiation differently across countries.
+## Key Observations
+- Country X has the highest median GHI but also high variability.
+- Cleaning events impact module irradiance noticeably.
+- Wind and humidity patterns influence solar radiation differently across countries.
+````
