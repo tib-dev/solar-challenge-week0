@@ -59,35 +59,35 @@ Cleaned datasets are saved in `/data/processed/` (ignored in git).
 
 ---
 
-## Folder Structure
 
+## Project Structure
 
-
+```text
 solar-challenge-week0/
-├── app/ # Streamlit app and assets
-│ ├── assets/ # Screenshots or static resources
-│ ├── main.py # Main Streamlit script
-│ └── utils/ # App-specific utilities
-├── core/ # Core modules for processing and visualization
-│ ├── eda.py
-│ ├── pipeline.py
-│ ├── data_loader.py
-│ ├── preprocessing.py
-│ ├── profiling.py
-│ └── visualization.py
-├── data/
-│ └── processed/ # Cleaned CSV files per country
-├── notebook/ # Jupyter notebooks for EDA and comparisons
-│ ├── eda_benin.ipynb
-│ ├── eda_sierra_leone.ipynb
-│ ├── eda_togo.ipynb
-│ └── compare_countries.ipynb
-├── scripts/ # Automation scripts (data ingestion, setup)
-├── tests/ # Unit tests for core modules
-├── requirements.txt
-├── setup_env.sh # Optional environment setup
-├── README.md
-└── .gitignore
+├── app/                   # Streamlit app and assets
+│   ├── assets/            # Screenshots or static resources
+│   ├── main.py            # Main Streamlit script
+│   └── utils/             # App-specific utility functions
+├── core/                  # Core modules for data processing and visualization
+│   ├── eda.py
+│   ├── pipeline.py
+│   ├── data_loader.py
+│   ├── preprocessing.py
+│   ├── profiling.py
+│   └── visualization.py
+├── data/                  # Data folder
+│   └── processed/         # Cleaned CSV files per country
+├── notebook/              # Jupyter notebooks for EDA and country comparisons
+│   ├── eda_benin.ipynb
+│   ├── eda_sierra_leone.ipynb
+│   ├── eda_togo.ipynb
+│   └── compare_countries.ipynb
+├── scripts/               # Automation scripts (data ingestion, setup)
+├── tests/                 # Unit tests for core modules
+├── requirements.txt       # Python dependencies
+├── setup_env.sh           # Optional environment setup script
+├── README.md              # Project overview and instructions
+└── .gitignore             # Git ignore rules
 
 
 ---
