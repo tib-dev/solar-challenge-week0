@@ -4,5 +4,5 @@
 .csv
 .ipynb_checkpoints
 notebooks
-tests
+/tests
 

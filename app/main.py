@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from pathlib import Path
-from utils import load_country_data, compare_metrics, summarize_kpis
+from app import load_country_data, compare_metrics, summarize_kpis  # use from app
 
 # ----------------------------
 # Page Setup
@@ -47,8 +47,8 @@ st.markdown("<div class='subtitle'>Interactive exploration of GHI, DNI, and DHI 
 st.sidebar.header("⚙️ Dashboard Settings")
 
 data_dir = Path("../data")
-available_countries = [f.stem.replace("_clean", "").capitalize()
-                       for f in data_dir.glob("*_clean.csv")]
+available_countries = [f.stem.replace(
+    "_clean", "").capitalize() for f in data_dir.glob("*_clean.csv")]
 
 selected_countries = st.sidebar.multiselect(
     "Select Countries to Compare",
@@ -56,10 +56,7 @@ selected_countries = st.sidebar.multiselect(
     default=available_countries
 )
 
-metric = st.sidebar.selectbox(
-    "Select Solar Metric",
-    ["GHI", "DNI", "DHI"]
-)
+metric = st.sidebar.selectbox("Select Solar Metric", ["GHI", "DNI", "DHI"])
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("**Visualization Options**")
@@ -104,13 +101,12 @@ col3.metric("Overall Mean GHI", None, f"{kpi_df['Mean GHI']:.2f}")
 # ----------------------------
 # Visualization Section
 # ----------------------------
-st.markdown("###  Metric Comparison")
+st.markdown(f"### {metric} Comparison")
 
 if chart_type == "Boxplot":
     fig = px.box(
         combined_df, x="Country", y=metric, color="Country",
-        title=f"{metric} Distribution by Country",
-        template="plotly_white"
+        title=f"{metric} Distribution by Country", template="plotly_white"
     )
 else:
     grouped = combined_df.groupby("Country")[metric].mean().reset_index()
@@ -125,7 +121,7 @@ st.plotly_chart(fig, use_container_width=True)
 # ----------------------------
 # Summary Table
 # ----------------------------
-st.markdown("###  Summary Statistics")
+st.markdown("### Summary Statistics")
 st.dataframe(summary_df.style.highlight_max(axis=0), use_container_width=True)
 
 # ----------------------------
