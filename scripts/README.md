@@ -14,4 +14,4 @@ source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 pip install streamlit pandas plotly
 
 # 3. Run the app
-streamlit run app/main.py
+python -m streamlit run app/main.py
