@@ -90,7 +90,7 @@ combined_df = pd.concat(dfs, ignore_index=True)
 # ----------------------------
 # KPI Section
 # ----------------------------
-st.markdown("### 🏅 Key Performance Indicators")
+st.markdown("### Key Performance Indicators")
 summary_df = compare_metrics(combined_df, ["GHI", "DNI", "DHI"])
 kpi_df = summarize_kpis(summary_df)
 
@@ -104,7 +104,7 @@ col3.metric("Overall Mean GHI", None, f"{kpi_df['Mean GHI']:.2f}")
 # ----------------------------
 # Visualization Section
 # ----------------------------
-st.markdown("### 📊 Metric Comparison")
+st.markdown("###  Metric Comparison")
 
 if chart_type == "Boxplot":
     fig = px.box(
@@ -125,7 +125,7 @@ st.plotly_chart(fig, use_container_width=True)
 # ----------------------------
 # Summary Table
 # ----------------------------
-st.markdown("### 📈 Summary Statistics")
+st.markdown("###  Summary Statistics")
 st.dataframe(summary_df.style.highlight_max(axis=0), use_container_width=True)
 
 # ----------------------------
