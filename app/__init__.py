@@ -15,5 +15,5 @@ __all__ = [
     "summarize_kpis",
     "plot_box",
     "plot_bar",
-    "kpi_summary"
+    "kpi_summary",
 ]
