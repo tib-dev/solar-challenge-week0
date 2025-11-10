@@ -11,7 +11,7 @@ st.set_page_config(
     page_title="Solar Data Dashboard",
     page_icon="🌞",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
 # ----------------------------
@@ -35,11 +35,16 @@ st.markdown(
     }
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
-st.markdown("<div class='main-title'>🌞 Solar Energy Metrics Dashboard</div>",
-            unsafe_allow_html=True)
-st.markdown("<div class='subtitle'>Interactive exploration of GHI, DNI, and DHI across multiple countries</div>", unsafe_allow_html=True)
+st.markdown(
+    "<div class='main-title'>🌞 Solar Energy Metrics Dashboard</div>",
+    unsafe_allow_html=True,
+)
+st.markdown(
+    "<div class='subtitle'>Interactive exploration of GHI, DNI, and DHI across multiple countries</div>",
+    unsafe_allow_html=True,
+)
 
 # ----------------------------
 # Sidebar
@@ -47,24 +52,19 @@ st.markdown("<div class='subtitle'>Interactive exploration of GHI, DNI, and DHI 
 st.sidebar.header("⚙️ Dashboard Settings")
 
 data_dir = Path("../data")
-available_countries = [f.stem.replace(
-    "_clean", "").capitalize() for f in data_dir.glob("*_clean.csv")]
+available_countries = [
+    f.stem.replace("_clean", "").capitalize() for f in data_dir.glob("*_clean.csv")
+]
 
 selected_countries = st.sidebar.multiselect(
-    "Select Countries to Compare",
-    available_countries,
-    default=available_countries
+    "Select Countries to Compare", available_countries, default=available_countries
 )
 
 metric = st.sidebar.selectbox("Select Solar Metric", ["GHI", "DNI", "DHI"])
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("**Visualization Options**")
-chart_type = st.sidebar.radio(
-    "Select Chart Type",
-    ["Boxplot", "Bar Chart"],
-    index=0
-)
+chart_type = st.sidebar.radio("Select Chart Type", ["Boxplot", "Bar Chart"], index=0)
 
 # ----------------------------
 # Load and Combine Data
@@ -92,10 +92,8 @@ summary_df = compare_metrics(combined_df, ["GHI", "DNI", "DHI"])
 kpi_df = summarize_kpis(summary_df)
 
 col1, col2, col3 = st.columns(3)
-col1.metric("Top Country (Avg GHI)",
-            kpi_df["Top Country"], f"{kpi_df['Max GHI']:.2f}")
-col2.metric("Lowest Avg GHI",
-            kpi_df["Lowest Country"], f"{kpi_df['Min GHI']:.2f}")
+col1.metric("Top Country (Avg GHI)", kpi_df["Top Country"], f"{kpi_df['Max GHI']:.2f}")
+col2.metric("Lowest Avg GHI", kpi_df["Lowest Country"], f"{kpi_df['Min GHI']:.2f}")
 col3.metric("Overall Mean GHI", None, f"{kpi_df['Mean GHI']:.2f}")
 
 # ----------------------------
@@ -105,15 +103,23 @@ st.markdown(f"### {metric} Comparison")
 
 if chart_type == "Boxplot":
     fig = px.box(
-        combined_df, x="Country", y=metric, color="Country",
-        title=f"{metric} Distribution by Country", template="plotly_white"
+        combined_df,
+        x="Country",
+        y=metric,
+        color="Country",
+        title=f"{metric} Distribution by Country",
+        template="plotly_white",
     )
 else:
     grouped = combined_df.groupby("Country")[metric].mean().reset_index()
     fig = px.bar(
-        grouped, x="Country", y=metric, color="Country",
-        text_auto=".2f", template="plotly_white",
-        title=f"Average {metric} by Country"
+        grouped,
+        x="Country",
+        y=metric,
+        color="Country",
+        text_auto=".2f",
+        template="plotly_white",
+        title=f"Average {metric} by Country",
     )
 
 st.plotly_chart(fig, use_container_width=True)
@@ -134,5 +140,5 @@ st.markdown(
         © 2025 Solar Insights Dashboard 
     </div>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )

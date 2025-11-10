@@ -27,8 +27,7 @@ class SolarPipeline:
         df_clean = cleaner.fill_missing(z_cols)
         df_clean = cleaner.drop_outliers(mask)
 
-        print(
-            f"✅ Cleaned {self.country} dataset. Rows remaining: {len(df_clean)}")
+        print(f"✅ Cleaned {self.country} dataset. Rows remaining: {len(df_clean)}")
 
         eda = EDA(df_clean)
         eda.plot_time_series(["GHI", "DNI", "DHI", "Tamb"])

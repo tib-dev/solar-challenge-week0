@@ -30,5 +30,5 @@ def summarize_kpis(summary_df):
         "Max GHI": summary_df["mean_GHI"].max(),
         "Lowest Country": lowest_country,
         "Min GHI": summary_df["mean_GHI"].min(),
-        "Mean GHI": summary_df["mean_GHI"].mean()
+        "Mean GHI": summary_df["mean_GHI"].mean(),
     }

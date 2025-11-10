@@ -15,8 +15,7 @@ class Visualizer:
 
         bins = np.arange(0, 361, 30)
         labels = (bins[:-1] + 15).tolist()
-        df["WD_bin"] = pd.cut(df["WD"] % 360, bins=bins,
-                              right=False, labels=labels)
+        df["WD_bin"] = pd.cut(df["WD"] % 360, bins=bins, right=False, labels=labels)
         wind_summary = df.groupby("WD_bin")["WS"].mean().reindex(labels)
         theta = np.deg2rad([float(x) for x in wind_summary.index])
         radii = wind_summary.values
@@ -39,8 +38,7 @@ class Visualizer:
     @staticmethod
     def bubble_chart(df, x, y, size_col, title=None):
         if not all(col in df.columns for col in [x, y, size_col]):
-            print(
-                f"⚠️ Missing one of the required columns: {x}, {y}, {size_col}")
+            print(f"⚠️ Missing one of the required columns: {x}, {y}, {size_col}")
             return
 
         sample = df.sample(n=min(2000, len(df)))

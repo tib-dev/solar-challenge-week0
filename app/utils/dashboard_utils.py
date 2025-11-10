@@ -38,9 +38,8 @@ def kpi_summary(kpi: dict):
     Return Streamlit metrics layout for KPIs.
     """
     import streamlit as st
+
     col1, col2, col3 = st.columns(3)
-    col1.metric("Top Country by Avg GHI",
-                kpi["Top Country"], f"{kpi['Max GHI']:.2f}")
-    col2.metric("Lowest Avg GHI",
-                kpi["Lowest Country"], f"{kpi['Min GHI']:.2f}")
+    col1.metric("Top Country by Avg GHI", kpi["Top Country"], f"{kpi['Max GHI']:.2f}")
+    col2.metric("Lowest Avg GHI", kpi["Lowest Country"], f"{kpi['Min GHI']:.2f}")
     col3.metric("Average GHI (All)", f"{kpi['Mean GHI']:.2f}")
