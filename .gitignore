@@ -2,14 +2,11 @@
 venv
 .idea
 data
+data/
 *.ipynb
 *.csv
 .ipynb_checkpoints
 notebooks
 /tests
-notebook/*.ipynb
-data/
-*.csv
-*.zip
-*.rar
-*.h5
+
+
