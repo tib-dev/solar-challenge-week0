@@ -1,3 +1,10 @@
+"""
+App package initialization.
+
+Contains the Streamlit dashboard utilities for data loading, analysis,
+and visualization of the Solar Challenge Week 0 project.
+"""
+
 from .data_utils import load_country_data
 from .eda_utils import compare_metrics, summarize_kpis
 from .dashboard_utils import plot_box, plot_bar, kpi_summary
