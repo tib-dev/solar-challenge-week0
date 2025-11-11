@@ -1,8 +1,13 @@
 .venv
+venv
 .idea
 /data
-.csv
+data
+*.ipynb
+*.csv
 .ipynb_checkpoints
 notebooks
 /tests
+
+
 
