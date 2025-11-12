@@ -74,7 +74,9 @@ solar-challenge-week0/
 │   ├── profiling.py
 │   └── visualization.py
 ├── data/                  # Data folder
+│   └── raw/               # Raw CSV files per country
 │   └── processed/         # Cleaned CSV files per country
+│   └── sample/            # Sample data for testing
 ├── notebook/              # Jupyter notebooks for EDA and country comparisons
 │   ├── eda_benin.ipynb
 │   ├── eda_sierra_leone.ipynb
